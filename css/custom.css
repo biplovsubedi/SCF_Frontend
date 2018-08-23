@@ -45,3 +45,8 @@
     background-color: whitesmoke;
     border: 1 px solid #14366E;
 }
+
+#dual_x_div{
+    height: 300px;
+    width: inherit;
+}
