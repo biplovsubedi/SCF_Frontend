@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="css/adm.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="https://canvasjs.com/assets/css/jquery-ui.1.11.2.min.css" rel="stylesheet" />
+    <script>
+        window.onload = function() {
+
+            // Construct options first and then pass it as a parameter
+            var options1 = {
+                animationEnabled: true,
+                title: {
+                    text: ""
+                },
+                data: [{
+                    type: "bar", //change it to line, area, bar, pie, etc
+                    legendText: "Amount in EUR(in Thousands)",
+
+                    showInLegend: false,
+                    dataPoints: [{
+                            label:"Pending",
+                            y: 12
+                        },
+                    
+                        {
+                            label:"Outstanding",
+                            y: 6
+                        },
+                        {
+                            label:"Paid",
+                            y: 14
+                        }
+                    ]
+                }]
+            };
+
+            $("#resizable").resizable({
+                create: function(event, ui) {
+                    //Create chart.
+                    $("#chartContainer1").CanvasJSChart(options1);
+                },
+                resize: function(event, ui) {
+                    //Update chart size according to its container size.
+                    $("#chartContainer1").CanvasJSChart().render();
+                }
+            });
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <br>
+    <div class="container col-md-6 main-container">
+
+        <div class="row">
+            <div class="col-md-5 data-div">
+                <div class="small-box bg-aqua mybox data-div-inner">
+                    <div class="inner">
+                        <h3>EUR 150,000</h3>
+                        <p>Total Discounted</p>
+                    </div>
+
+                </div>
+                <div class="small-box bg-aqua mybox data-div-inner">
+                    <div class="inner">
+                        <h3>EUR 14,000</h3>
+                        <p>Invoices Paid Last Month</p>
+                    </div>
+
+                </div>
+                <div class="small-box bg-aqua mybox data-div-inner">
+                    <div class="inner">
+                        <h3>EUR 38,000</h3>
+                        <p>Pending Payments (Future Exposure)</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-7 chart-div">
+ 
+                <div id="chartContainer1" style="height: 100%; width: 100%; border: 1px solid "></div>
+
+                
+
+            </div>
+        </div>
+
+
+    </div>
+    <div id="resizable" style="height: 370px;border:1px solid gray;">
+        <div id="chartContainer1" style="height: 80%; width: 50%;"></div>
+    </div>
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery-ui.1.11.2.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+</body>
+
+</html>
