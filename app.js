@@ -9,7 +9,7 @@ testApp.config(function ($httpProvider) {
 
 
 testApp.controller('testController', function ($scope, $http) {
-    //$scope.cin = "1500000012";
+    //$scope.cin = "1500000010";
     $scope.outputdatacin = "";
     $scope.outputdatatotal = "";
     $scope.outputdatapending = "";
