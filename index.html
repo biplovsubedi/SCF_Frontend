@@ -1,69 +1,56 @@
 <html>
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/adm.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <title>AngularJS $Http service tutorial example</title>
-    <script src="js/angular.min.js"></script>
-    <script src="app.js"></script>
-</head>
-
-<body ng-app="testApp" ng-controller="testController">
-
-
-    <input type="text" name="myinput" ng-model="cin" placeholder="Enter cin..." value="1500000010">
-    <br>
-    <button ng-click="getRequest()">Submit Cin</button>
-    <br>
-    <hr>
-    <br>
-
-    <br>
-    <div class="container col-md-5 main-container">
-
-        <div class="row">
-            <div class="col-md-5 data-div">
-                <div class="small-box bg-aqua mybox data-div-inner">
-                    <div class="inner">
-                        <h4>EUR {{ outputdatatotal }} </h4>
-                        <p>Total Discounted</p>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- add cdn links to bootsrap and angular-- and change EUR to GBP>
+        <link href="css/adm.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
+        <title>RBS Supply Chain Finance</title>
+        <script src="js/angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body ng-app="testApp" ng-controller="testController">
+        <input type="text" name="myinput" ng-model="cin" placeholder="Enter cin..." value="1500000010">
+        <br>
+        <button ng-click="getRequest()">Submit Cin</button>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <div class="container col-md-5 main-container">
+            <div class="row">
+                <div class="col-md-5 data-div">
+                    <div class="small-box bg-aqua mybox data-div-inner">
+                        <div class="inner">
+                            <h4>EUR {{ outputdatatotal }} </h4>
+                            <p>Total Discounted</p>
+                        </div>
                     </div>
-
-                </div>
-                <div class="small-box bg-aqua mybox data-div-inner">
-                    <div class="inner">
-                        <h4>EUR {{ outputdatapending }} </h4>
-                        <p>Pending Payments (Future Exposure)</p>
+                    <div class="small-box bg-aqua mybox data-div-inner">
+                        <div class="inner">
+                            <h4>EUR {{ outputdatapending }} </h4>
+                            <p>Pending Payments (Future Exposure)</p>
+                        </div>
                     </div>
-
-                </div>
-                <div class="small-box bg-aqua mybox data-div-inner">
-                    <div class="inner">
-                        <h4>EUR {{ outputdatalast }} </h4>
-                        <p>Invoices Paid Last Month</p>
+                    <div class="small-box bg-aqua mybox data-div-inner">
+                        <div class="inner">
+                            <h4>EUR {{ outputdatalast }} </h4>
+                            <p>Invoices Paid Last Month</p>
+                        </div>
                     </div>
-
                 </div>
+                <!--end of data div -->
+                <div class="col-md-7 chart-div">
+                    <div id="dual_x_div" style=""></div>
+                </div>
+                <!--end of chart div-->
             </div>
-
-            <div class="col-md-7 chart-div">
-
-                <div id="dual_x_div" style=""></div>
-            </div>
+            <input type="hidden" id="total_discounted" ng-model="outputdatatotal">
+            <input type="hidden" id="last_month" ng-model="outputdatalast">
+            <input type="hidden" id="pending_payments" ng-model="outputdatapending">
         </div>
-        <input type="hidden" id="total_discounted" ng-model="outputdatatotal">
-        <input type="hidden" id="last_month" ng-model="outputdatalast">
-        <input type="hidden" id="pending_payments" ng-model="outputdatapending">
-
-    </div>
-    
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="js/barchart.js">
-    </script>
-
-</body>
-
+        <!-- end of widget container div -->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" src="js/barchart.js"></script>
+    </body>
 </html>
